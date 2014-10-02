@@ -1,0 +1,22 @@
+h1 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+#matrix-container {
+  margin: 20px auto;
+  font-size: 0;
+}
+
+#matrix-container .square {
+  background: black;
+  border: 1px solid #ccc;
+  display: inline-block;
+}
+#matrix-container .square.active {
+  background: white;
+}
+#matrix-container .mat-row {
+  margin: 0 auto;
+  text-align: center;
+}

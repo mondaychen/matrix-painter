@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>The Matrix Painter</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/custom.css">
+</head>
+<body>
+  <div class="container">
+    <h1>The Matrix Painter</h1>
+    <div class="row">
+      <form class="form-inline" role="form" id="matrix-maker">
+        <div class="form-group">
+          <label class="sr-only" for="xValue">X</label>
+          <input type="number" class="form-control" id="xValue" placeholder="Enter X">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="yValue">Y</label>
+          <input type="number" class="form-control" id="yValue" placeholder="Enter Y">
+        </div>
+        <button type="submit" class="btn btn-primary">Give me a new maxtrix!</button>
+      </form>
+    </div>
+    <div class="row">
+      <div id="matrix-container"></div>
+    </div>
+    <div class="row">
+      <h3>Output:</h3>
+      <textarea  class="form-control" name="output" id="output" rows="10"></textarea>
+    </div>
+  </div>
+  <!--scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="./js/main.js"></script>
+</body>
+</html>
