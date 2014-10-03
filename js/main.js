@@ -1,4 +1,5 @@
-$(document).ready(function () {
+var doc = $(document)
+doc.ready(function () {
   var xInput = $('#xValue')
   var yInput = $('#yValue')
   var matrixContainer = $('#matrix-container')
@@ -29,15 +30,26 @@ $(document).ready(function () {
     squares.height(widthOfSquare)
 
     resetOutput(x, y)
+  })
 
-    squares.on('mousedown', function(e) {
-      var sq = $(this)
-      var x = sq.data('x'), y = sq.data('y')
-      var active = sq.hasClass('active')
-      sq[active ? 'removeClass' : 'addClass']('active')
-      setOutput(x, y, active)
-      console.log('down')
-    })
+
+  function moveListener (e) {
+    var target = $(e.target)
+    if(target.hasClass('square')) {
+      var x = target.data('x'), y = target.data('y')
+      target.addClass('active')
+      setOutput(x, y, 1)
+    }
+  }
+  doc.on('mousedown', function () {
+    doc.on('mousemove', moveListener)
+  }).on('mouseup', function() {
+    doc.off('mousemove')
+  }).on('dblclick', '.square', function() {
+    var sq = $(this)
+    sq.removeClass('active')
+    var x = sq.data('x'), y = sq.data('y')
+    setOutput(x, y, 0)
   })
 
   function resetOutput (x, y) {
@@ -54,7 +66,7 @@ $(document).ready(function () {
   }
 
   function setOutput (x, y, value) {
-    matrixArr[y - 1][x - 1] = value ? 0 : 1
+    matrixArr[y - 1][x - 1] = value
     updateOutput()
   }
 
