@@ -13,8 +13,8 @@ doc.ready(function () {
   $('#matrix-maker').submit(function(e) {
     e.preventDefault()
     matrixContainer.empty()
-    var x = parseFloat(xInput.val())
-    var y = parseFloat(yInput.val())
+    var x = xInput.val() | 0
+    var y = yInput.val() | 0
     var square, row
     for (var j = 1; j <= y; j++) {
       row = $('<div class="mat-row"></div>')
